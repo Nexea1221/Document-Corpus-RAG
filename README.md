@@ -7,6 +7,7 @@ The system combines structured metadata with vector search and a local LLM (Olla
 ---
 
 ## Project Architecture
+```
 AGORA CSVs
 ↓
 Data Loading (data_loader.py)
@@ -26,6 +27,7 @@ Retrieved Context
 LLM (Ollama)
 ↓
 Final Answer
+```
 
 ---
 
