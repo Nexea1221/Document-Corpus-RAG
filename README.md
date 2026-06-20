@@ -92,15 +92,17 @@ ollama run mistral
 
 2. Place the dataset into data/documents/agora like shown below:
 
+```
 data/documents/agora/
 ├── segments.csv
 ├── documents.csv
 ├── authorities.csv
 ├── collections.csv
 └── fulltext/
-    ├── doc1.txt
-    ├── doc2.txt
+    ├── 1.txt
+    ├── 2.txt
     └── ...
+```
 
 ## 7. Run project
 ```bash
