@@ -65,7 +65,7 @@ agora-rag-assistant/
 
 ### 1. Clone the repository
 ```bash
-git clone xx
+git clone https://github.com/Nexea1221/Document-Corpus-RAG
 cd document-corpus-rag
 ```
 
@@ -87,7 +87,7 @@ https://ollama.com
 ollama run mistral
 ```
 
-### 6. Download and add dataset
+### 6. Download and add dataset (ONLY IF DATA FOLDER IS EMPTY)
 1. Downloaded the dataset from `https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data`
 
 2. Place the dataset into data/documents/agora like shown below:
@@ -108,8 +108,8 @@ py main.py
 ```
 
 ## How to use
-1. Download the dataset from the link provided
-2. Place the dataset into the folder shown above
+1. Download the dataset from the link provided (Only if data/ folder is empty)
+2. Place the dataset into the folder shown above (Only if data/ folder is empty)
 3. Run the program
 4. Ask a question
 5. Get answer
