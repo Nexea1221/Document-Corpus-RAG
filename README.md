@@ -89,10 +89,21 @@ https://ollama.com
 ollama run mistral
 ```
 
-### 6. Download and add dataset (ONLY IF DATA FOLDER IS EMPTY)
-1. Downloaded the dataset from `https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data`
+### 6. Download and add dataset (ONLY IF DATA FOLDER IS EMPTY/DOES NOT EXIST)
+1. Download the dataset from `https://www.kaggle.com/datasets/umerhaddii/ai-governance-documents-data` or run this code
 
-2. Place the dataset into data/documents/agora like shown below:
+```bash
+import kagglehub
+
+# Download latest version
+path = kagglehub.dataset_download("umerhaddii/ai-governance-documents-data")
+
+print("Path to dataset files:", path)
+```
+
+2. Create a data folder, and a documents folder
+
+3. Place the dataset into data/documents/ like shown below:
 
 ```
 data/documents/agora/
@@ -117,3 +128,7 @@ py main.py
 3. Run the program
 4. Ask a question
 5. Get answer
+
+--- 
+
+## Note: Since the assessment mentioned not to include any large datasets in the repo, anyone who uses the repo will have to execute Step 6
