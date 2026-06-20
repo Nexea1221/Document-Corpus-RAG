@@ -1,0 +1,6 @@
+kagglehub
+pandas
+ollama
+sentence_transformers
+faiss-cpu
+numpy
