@@ -14,9 +14,7 @@ SUMMARY: {chunk.get('summary', '')}
 JURISDICTION: {chunk.get('jurisdiction', '')}
 AUTHORITY LEVEL: {chunk.get('parent_authority', '')}
 
-COLLECTION CATEGORIES: {', '.join(chunk.get('collection_names', []))}
-
-# STATUS: {chunk.get('status', '')}
+COLLECTION CATEGORIES: {', '.join(chunk.get('collection_categories', []))}
 
 TEXT:
 {chunk['text']}
