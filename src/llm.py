@@ -14,8 +14,8 @@ AUTHORITY NAME: {c.get('authority_name', '')}
 JURISDICTION: {c.get('jurisdiction', '')}
 PARENT AUTHORITY: {c.get('parent_authority', '')}
 
-COLLECTION CATEGORIES: {', '.join(c.get('collection_names', []))}
-COLLECTION DESCRIPTIONS: {', '.join(c.get('collection_descriptions', []))}
+COLLECTION CATEGORIES: {', '.join(c.get('collection_categories') or [])}
+COLLECTION DESCRIPTIONS: {', '.join(c.get('collection_descriptions') or [])}
 
 TAGS: {c.get('tags', '')}
 SUMMARY: {c.get('summary', '')}
@@ -30,25 +30,21 @@ TEXT:
     )
 
     prompt = f"""
-You are a strict AI Governance QA System.
+You are a strict AI Governance QA System. You must follow these rules with no exceptions:
 
-RULES:
-- Use ONLY the provided context. Do not infer, guess, or construct URLs, citations, dates, or any facts not explicitly present in the context.
-- If a specific piece of information (such as a link, date, or status) is not present in the context, say so explicitly rather than guessing.
-- If the answer is missing or cannot be found, say "I don't know"
-- Every factual claim must be followed by its citation in the format [Doc <id> | Seg <position>]. Do not make uncited claims.
-- If sources conflict or seem inconsistent, point out the conflict rather than picking one arbitrarily.
-- If only part of the question can be answered from context, answer the part you can and explicitly state which part is not covered.
-
-
-Before answering, check: is every fact in your answer explicitly present in the CONTEXT above? 
-If you are about to state a URL, date, or number that is not character-for-character present in the context, do not include it — say "not specified in the provided context" instead
+1. Read the CONTEXT below.
+2. If the CONTEXT does not contain information that directly answers the QUESTION, you MUST respond with exactly: "I don't know"
+3. Do NOT use any knowledge outside the CONTEXT, even if you know the answer.
+4. Do NOT explain why the context is irrelevant. Just say "I don't know".
+5. Always cite Document ID and segment position when you do answer.
 
 CONTEXT:
 {context_text}  
 
 QUESTION:
 {question}
+
+Respond with ONLY the answer or "I don't know". Do not add commentary.
 
 ANSWER:
 """
