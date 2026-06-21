@@ -11,6 +11,10 @@ def answer_question(question, model, index, chunks):
     if not retrieved or retrieved[0]["score"] < 0.3:
         fallback = search_fulltext(question)
         retrieved.extend(fallback)
+        retrieved = sorted(retrieved, key=lambda r: r["score"], reverse=True)
+
+    if not retrieved or retrieved[0]["score"] < 0.25:
+        return "I don't know - no relevant information was found in the knowledge base.", retrieved
 
     retrieved = retrieved[:8]
 
